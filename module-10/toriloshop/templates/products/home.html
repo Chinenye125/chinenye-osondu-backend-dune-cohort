@@ -1,0 +1,30 @@
+<!-- templates/products/home.html -->
+{% extends 'products/base.html' %}
+
+{% block title %}Home - ToriloShop{% endblock %}
+
+{% block content %}
+    <h1>Welcome to ToriloShop</h1>
+    <p style="color: #555; margin-top: 10px;">Your one-stop destination for amazing products!</p>
+    
+    {% if featured_products %}
+        <h2 style="margin-top: 10px;">Featured Products</h2>
+        <ul>
+        {% for product in featured_products %}
+            <li>
+                <a href="{% url 'product_detail' product.id %}
+                "style="color: #007bff; font-weight: bold; text-decoration: none; line-height: 1.5;">
+                    {{ product.name }}
+                </a>
+                - ₦{{ product.price|floatformat:2 }}
+                ({{ product.stock }} in stock)
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p style="margin-top: 20px;">No products available yet. Check back soon!</p>
+    {% endif %}
+    
+    <div style="margin-top: 30px;"><a href="{% url 'product_list' %}
+        "style="background: #1a1a2e; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; text-decoration: none;">View all products →</a></div>
+{% endblock %}
