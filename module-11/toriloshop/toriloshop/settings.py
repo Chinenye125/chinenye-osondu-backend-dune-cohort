@@ -38,8 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'toriloshop.products',
-    'toriloshop.users',
+    'products',
+    'users',
 ]
 
 MIDDLEWARE = [

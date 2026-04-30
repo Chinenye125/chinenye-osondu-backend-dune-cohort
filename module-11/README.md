@@ -160,7 +160,7 @@ Follow these steps to run the project locally:
 ![Updated Price And Deleted One Product](screenshots/19_success_message.png)
 
 ### Categories Page
-![ Admin Panel](screenshots/20_Categories_page.png)
+![Categories page](screenshots/20_categories_page.png)
 
 
 ## Conclusion

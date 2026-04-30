@@ -17,9 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-handler404 = 'toriloshop.products.views.custom_404'
+handler404 = 'products.views.custom_404'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('toriloshop.products.urls'))
+    path('', include('products.urls'))
 ]
