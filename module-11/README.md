@@ -40,7 +40,7 @@ It also includes:
   ➜ Displays all products in a grid layout.
 
 - Edit Product  
-  URL: `/products/<id>/edit/`  
+  URL: `/products/<id>/edit/` 
   ➜ Allows updating product details using a pre-filled form.
 
 - Delete Product  
