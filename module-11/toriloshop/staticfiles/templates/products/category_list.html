@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Categories - ToriloShop{% endblock %}
+
+{% block content %}
+    <h1 class="page-title">All Categories</h1>
+    
+    {% if categories %}
+        <h2 class="pro">Featured Products</h2>
+        <ul class="category-list">
+        {% for category in categories %}
+            <li>
+                <strong>
+                    {{ category.name }}
+                </strong>
+                {% if category.product_count > 0 %}
+                    ({{ category.products.count }} products)
+                {% else %}
+                    (No products)
+                {% endif %}
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No categories available.</p>
+    {% endif %}
+    
+{% endblock %}

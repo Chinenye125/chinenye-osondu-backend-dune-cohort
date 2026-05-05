@@ -33,8 +33,7 @@ python manage.py runserver
 ### How to Run Module 9
 
 cd module-9/toriloshop
-../../venv/Scripts/activate # Windows
-../../venv/bin/activate # Mac/Linux
+../venv/Scripts/activate # Windows
 python manage.py runserver
 
 
@@ -49,3 +48,4 @@ python manage.py runserver
 cd module-10
 ..\venv\Scripts\activate
 python manage.py runserver
+
