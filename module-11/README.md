@@ -1,13 +1,19 @@
-#  Module 10: Django Forms & Full CRUD
+# Project Description - MOUDLE 12
 
-## Project Description
+## What is ToriloShop?
+ToriloShop is a Django-based e-commerce web application that allows users to manage products and categories.  
+The project demonstrates Django fundamentals such as models, views, templates, forms, CRUD operations, media handling, admin customization, and user authentication.
 
-#### What is Toriloshop?
-Torilo Shop is a simple Django web application that demonstrates how to create a django project with multiple apps, and connect URLS.
-The application contains a homepage, a products page, and an about page. it also includes a custom 404 error page to handle invalid URLS and it supports database functionality using Django Models.
+The application includes product images, custom styling, search functionality, protected routes, and permission-based access control for staff users.
 
-#### What does it do?
-The application allows users to navigate between different pages such as the Home Page, Products Page, and About Page. Each page displays information using Django views.
+### What does it do?
+The application allows users to create, view, update, search, and manage products and categories through a functional web interface.
+
+It supports product image uploads, customised admin features, and authentication functionalities such as registration, login, and logout.
+
+Authenticated users can access protected product management pages, while only staff users are allowed to delete products.
+
+The navigation bar also updates dynamically depending on whether the user is logged in or logged out.
 
 # ToriloShop - Django CRUD Project
 
@@ -27,85 +33,76 @@ It also includes:
 - Success messages after actions
 
 
+## Django Authentication Project
+
 ## Features Implemented
 
-### Product Features
+### Authentication Features
 
-- Add Product  
+- User Registration  
+  URL: `/accounts/register/`  
+  ➜ Allows users to create a new account using username, email, and password.
+
+- User Login  
+  URL: `/accounts/login/`  
+  ➜ Allows registered users to login securely.
+
+- User Logout  
+  URL: `/accounts/logout/`  
+  ➜ Logs users out and redirects them to the homepage.
+
+
+### Protected Product Features
+
+- Protected Add Product  
   URL: `/products/add/`  
-  ➜ Allows users to create a new product with validation.
+  ➜ Only logged-in users can access the add product page.
 
-- View Products  
-  URL: `/products/`  
-  ➜ Displays all products in a grid layout.
+- Protected Edit Product  
+  URL: `/products/<id>/edit/`  
+  ➜ Only authenticated users can edit products.
 
-- Edit Product  
-  URL: `/products/<id>/edit/` 
-  ➜ Allows updating product details using a pre-filled form.
-
-- Delete Product  
+- Staff Only Delete Product  
   URL: `/products/<id>/delete/`  
-  ➜ Confirms before deleting a product (POST only).
+  ➜ Only staff users are allowed to delete products.
 
 
-### Category Features
+### Navbar Authentication Features
 
-- Add Category  
-  URL: `/categories/add/`
+- Logged In Navbar  
+  ➜ Displays username and logout button when user is authenticated.
 
-- View Categories  
-  URL: `/categories/`
-
-- Edit Category  
-  URL: `/categories/<id>/edit/`
-
-- Delete Category  
-  URL: `/categories/<id>/delete/`
-
-
-### Search Feature
-
-- Search Products  
-  URL: `/products/?search=query`  
-  ➜ Filters products by name using search input.
+- Logged Out Navbar  
+  ➜ Displays login and register links when user is not authenticated.
 
 
 ## Setup Instructions
+
 Follow these steps to run the project locally:
 
-### 1. Open your terminal or command prompt using 
+### 1. Open your terminal or command prompt using
 
    C + ` (shortcut)
 
 ### 2. Navigate to the project folder:
-   
-   `cd/chinenye-osondu-backend-dune-cohort/module-10`
+
+   `cd/chinenye-osondu-backend-dune-cohort/Assignment-solution/module-12/toriloshop`
 
 ### 3. Create a virtual environment:
-   
+
    `python -m venv venv`
 
 ### 4. Activate the virtual environment:
-   
-   Windows:
-   
+
+#### Windows
+
    `venv\Scripts\activate`
 
 ### 5. Install Django:
-   
+
    `pip install django`
 
-### 6. Run the server:
-   
-   `python manage.py runserver`
-
-### 7. Open your browser and visit:
-   
-   `http://127.0.0.1:8000/`
-
-**UPDATED**
-
-### 8. Run migrations:
+### 6. Run migrations:
 
    `python manage.py makemigrations`
 
@@ -113,56 +110,43 @@ Follow these steps to run the project locally:
 
    `python manage.py migrate`
 
-### 9. Create superuser:
+### 7. Create superuser:
 
    `python manage.py createsuperuser`
 
-### 10. Run the server:
+### 8. Run the server:
 
    `python manage.py runserver`
 
-### 11. Open in browser(Use this link):
+### 9. Open in browser(Use this link):
 
    `http://127.0.0.1:8000/`
 
-### 12. Use this to Access admin panel:
+### 10. Use this to Access admin panel:
 
    `http://127.0.0.1:8000/admin/`
 
 
 ## Screenshots
 
-### Home Page Or Welcome Page
-![Home Page](screenshots\11_home_page_welcome_page.png)
+### Staff User Delete Access Page
+![Staff User Delete Access Page](screenshots/21_staff_user_delete_access.png)
 
-### Product List Page
-![Products Page](screenshots/12_product_list_page.png)
+### Registration Page
+![Registration Page](screenshots/22_registration_page.png)
 
-### Add Product Page
-![About Page](screenshots/13_add_product_page.png)
+### Login Page For Registered Users
+![Login Page For Registered Users](screenshots/23_login_page.png)
 
-### Edit Product Page
-![404 Page](screenshots/14_edit_product_page.png)
-
-### Form Validation Error
-![Project structure](screenshots/15_form_validation_error.png)
-
-### Delete Pop-Up Message
-![Shell Products By Category](screenshots/16_delete_pop_up_message.png)
-
-### Delete Message Page
-![Shell All Products](screenshots/17_delete_message_page.png)
-
-### Search Result
-![Product Price Greater Than 5000 ](screenshots/18_search_result.png)
-
-### Success Message
-![Updated Price And Deleted One Product](screenshots/19_success_message.png)
-
-### Categories Page
-![Categories page](screenshots/20_categories_page.png)
-
+### Customer's Registration Page
+![Customer's Registration Page](<screenshots/24_customer's registration.png>)
 
 ## Conclusion
 
-This project demonstrates the fundamentals of Django, including creating apps, defining views, routing URLs, and returning HTTP responses. It also introduces how to manage data using the Django admin panel It serves as a foundation for building more advanced web applications.
+This project demonstrates the fundamentals of Django web development, including models, views, templates, forms, CRUD operations, media handling, admin customization, and user authentication.
+
+The application allows users to manage products and categories, upload product images, perform search operations, and access protected routes securely.
+
+It also demonstrates how to implement authentication features such as registration, login, logout, permission-based access control, and dynamic navigation updates based on user authentication status.
+
+Overall, ToriloShop serves as a foundation for building more advanced and secure e-commerce web applications using Django.
