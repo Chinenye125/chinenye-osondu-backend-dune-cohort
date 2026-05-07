@@ -24,7 +24,8 @@ handler404 = 'products.views.custom_404'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('products.urls'))
+    path('', include('products.urls')),
+    path('accounts/', include('accounts.urls')),
 ]
 
 if settings.DEBUG:

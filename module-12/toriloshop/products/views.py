@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render, get_object_or_404
 from .models import Product, Category
 from .forms import ProductForm
@@ -54,6 +55,8 @@ def category_detail(request, slug):
         'category': category
     })
 
+
+@login_required
 def product_create(request):
    if request.method == 'POST':
        form = ProductForm(request.POST)
@@ -77,14 +80,27 @@ def product_update(request, pk):
        form = ProductForm(instance=product)
        return render(request, 'products/product_form.html', {'form': form})
     
+
+"""Only logged-in staff users can delete products"""
+@login_required
 def product_delete(request, pk):
-    product = get_object_or_404(Product, pk=pk)
-    if request.method == 'POST':
-        product_name = product.name
-        product.delete()
-        messages.success(request, f'{product_name} deleted successfully.')
-        return redirect('product_list')
-    return render(request, 'products/product_confirm_delete.html', {'product': product})
+   product = get_object_or_404(Product, pk=pk)
+
+# Restrict to staff (admins)
+   if not request.user.is_staff:
+       messages.error(request, "You are not authorized to delete this product.")
+       return redirect('product_list')
+
+   if request.method == 'POST':
+      product_name = product.name
+      product.delete()
+      messages. success(request, f'{product_name} deleted successfully.')
+      return redirect('product_list')
+
+    # GET request > show confirmation page 
+   return render(request, 'products/product_confirm_delete.html', {
+      'product': product
+})
 
 
 
