@@ -7,7 +7,9 @@
     <div style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
         <h1>{{ product.name }}</h1>
 
-          {% if product.image %}
+
+    
+        {% if product.image %}
             <div style="margin: 20px 0;">
                 <img src="{{ product.image.url }}" alt="{{ product.name }}" 
                 style="max-width: 100%; border: 1px solid #ddd; border-radius: 8px;"/>
@@ -17,6 +19,8 @@
         <p><strong>Category:</strong> {{ product.category }}</p>
         <p><strong>Price:</strong> ₦{{ product.price|floatformat:2 }}</p>
         <p><strong>Stock:</strong> {{ product.stock }} units</p>
+
+
         
         {% if product.stock > 0 %}
             <span style="background: #d4edda; color: #155724; padding: 5px 10px; border-radius: 4px; display: inline-block;">
@@ -29,7 +33,7 @@
         {% endif %}
         
         <p style="margin-top: 30px;">
-            <a href="/products/" style="color: #1a1a2e;">← Back to Products</a>
+            <a href="/products" style="color: #1a1a2e;">← Back to Products</a>
         </p>
     </div>
 </div>

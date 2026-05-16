@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  {% if form.instance.pk %}
+    Edit Product
+  {% else %}
+    Add Product
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+
+<h2 style="margin-bottom: 20px;">
+  {% if form.instance.pk %}
+    Edit Product
+  {% else %}
+    Add New Product
+  {% endif %}
+</h2>
+
+<form method="POST" enctype="multipart/form-data" style="max-width: 400px;">
+  {% csrf_token %}
+
+  <!-- FORM FIELDS -->
+   <div class="form-card">
+  {{ form.as_p }}
+  </div>
+
+  <button type="submit" style="padding: 10px 20px; margin-top: 10px;
+  cursor: pointer; background: #1a1a2e; color: white; border: none; border-radius: 5px;">
+     {% if form.instance.pk %}
+      Update Product
+    {% else %}
+      Save Product
+    {% endif %}
+
+  </button>
+</form>
+
+<!-- ERROR DISPLAY -->
+{% if form.errors %}
+  <div style="margin-top: 20px; color: red; background: #ffe6e6; padding: 10px; border-radius: 5px;">
+    <h4>Errors:</h4>
+    <ul>
+      {% for field, errors in form.errors.items %}
+        {% for error in errors %}
+          <li><strong>{{ field|title }}</strong>: {{ error }}</li>
+        {% endfor %}
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}
+
+<br>
+
+<a href="{% url 'product_list' %}" style="display: inline-block; margin-top: 15px;">
+  ← Back to Products
+</a>
+
+{% endblock %}
