@@ -251,19 +251,24 @@ Follow these steps to run the project locally:
    `http://127.0.0.1:8000/api/categories/`
 
 
-## Screenshots
+## Screenshots for Moudle 15
 
-### Staff User Delete Access Page
-![Staff User Delete Access Page](screenshots/21_staff_user_delete_access.png)
 
-### Registration Page
-![Registration Page](screenshots/22_registration_page.png)
+### Gunicorn Installed and Running 
+![Gunicorn Installed](screenshots/01_gunicorn_installed.png)
+![Gunicorn Running](screenshots/01_gunicorn_running.png)
 
-### Login Page For Registered Users
-![Login Page For Registered Users](screenshots/23_login_page.png)
+###  Requirements.txt
+![Requirements.txt](screenshots/02_gitignore_env_excluded.png)
 
-### Customer's Registration Page
-![Customer's Registration Page](<screenshots/24_customer's registration.png>)
+### Requirements.txt
+![Requirements.txt](screenshots/03_requirements_txt.png)
+
+### CollectStatic Output
+![CollectStatic Output](screenshots/04_collectstatic_output.png)
+
+### Server Running
+![Server Running](screenshots/05_server_running.png)
 
 ## Conclusion
 
